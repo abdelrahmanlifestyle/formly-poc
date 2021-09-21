@@ -12,6 +12,17 @@ export class AppComponent {
   model = {email: 'email@gmail.com', name: 'name'};
   fields: FormlyFieldConfig[] = [
     {
+      key: 'ip',
+      type: 'input',
+      templateOptions: {
+        label: 'IP Address (using custom validation declared in ngModule)',
+        required: true,
+      },
+      validators: {
+        validation: ['ip'],
+      },
+    },
+    {
       key: 'email',
       type: 'input',
       templateOptions: {
