@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormlyFieldConfig} from '@ngx-formly/core';
+import {IpValidator} from './app.module';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,11 @@ export class AppComponent {
       key: 'ip',
       type: 'input',
       templateOptions: {
-        label: 'IP Address (using custom validation declared in ngModule)',
+        label: 'IP Address (using custom validation through `validators.validation` property)',
         required: true,
       },
       validators: {
-        validation: ['ip'],
+        validation: [IpValidator],
       },
     },
     {
