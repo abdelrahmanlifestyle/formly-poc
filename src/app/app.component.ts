@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'formly-poc';
+  form = new FormGroup({});
+  model = {email: 'email@gmail.com', name: 'name'};
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: 'Email address',
+        placeholder: 'Enter email',
+        required: true,
+      }
+    },
+    {
+      key: 'name',
+      type: 'input',
+      templateOptions: {
+        label: 'Name',
+        placeholder: 'Enter name',
+        required: true,
+      }
+    }
+  ];
+
+  onSubmit(x: any) {
+    console.log(x);
+  }
 }
